@@ -131,6 +131,6 @@ dmypy.json
 # Custom files/folders
 data/polygons
 data/zones_splitting
-data/geoadmin_data
+data/geoadmin_*
 data/maps/*tif*
 .idea

@@ -57,7 +57,8 @@ def save_polygons_data(location_id, poly_id, str_poly, data_source, output_folde
             data = json.loads(res.text)
 
             save_dataset(location_id, poly_id, offset, data, output_folder)
-            logger.info('Saved data about %i boxes referred to polygon n. %04d, belonging to zone %s' % (len(data['results']), int(poly_id)+1, location_id))
+            logger.info('Saved data about %i boxes referred to polygon n. %04d, belonging to zone %s '
+                        '(layer %s)' % (len(data['results']), int(poly_id)+1, location_id, data_source))
 
             if len(data['results']) > 200:
                 offset += 200
@@ -78,13 +79,6 @@ def request_data_single_polygon(data_source, location_id, poly_id, vertexes):
 
     # Save data
     save_polygons_data(location_id, poly_id, str_poly, data_source, '%s/%s' % (cfg['downloader']['outputFolder'], data_source))
-
-    # # Save commercial/residential data
-    # save_polygons_data(location_id, poly_id, str_poly, data_source, '%s/%s' % (cfg['outputFolder'], data_source))
-
-    # # Save industrial data
-    # save_polygons_data(location_id, poly_id, str_poly, data_source, '%s/%s' % (cfg['outputFolder'], data_source))
-
 
 # Main
 if __name__ == "__main__":
