@@ -1,0 +1,480 @@
+scenarios:
+    h_rcp2_A_2035: ['Y2035','NO_NEWHYDRO','H_A','H_RCP2','COST_2035','COST_A_2035', 'LOCS_2035_A', 'NO_IMPORT']
+    h_rcp8_A_2035: ['Y2035','NO_NEWHYDRO','H_A','H_RCP8','COST_2035','COST_A_2035', 'LOCS_2035_A', 'NO_IMPORT']
+    l_rcp2_A_2035: ['Y2035','NO_NEWHYDRO','L_A','L_RCP2','COST_2035','COST_A_2035', 'LOCS_2035_A', 'NO_IMPORT']
+    l_rcp8_A_2035: ['Y2035','NO_NEWHYDRO','L_A','L_RCP8','COST_2035','COST_A_2035', 'LOCS_2035_A', 'NO_IMPORT']
+    h_rcp2_A_2050: ['Y2050','NO_NEWHYDRO','H_A','H_RCP2','COST_2050','COST_A_2050', 'LOCS_2050_A', 'NO_IMPORT']
+    h_rcp8_A_2050: ['Y2050','NO_NEWHYDRO','H_A','H_RCP8','COST_2050','COST_A_2050', 'LOCS_2050_A', 'NO_IMPORT']
+    l_rcp2_A_2050: ['Y2050','NO_NEWHYDRO','L_A','L_RCP2','COST_2050','COST_A_2050', 'LOCS_2050_A', 'NO_IMPORT']
+    l_rcp8_A_2050: ['Y2050','NO_NEWHYDRO','L_A','L_RCP8','COST_2050','COST_A_2050', 'LOCS_2050_A', 'NO_IMPORT']
+
+    h_rcp2_B_2035: ['Y2035','NO_NEWHYDRO','H_B','H_RCP2','COST_2035','COST_B_2035', 'LOCS_2035_B', 'NO_IMPORT']
+    h_rcp8_B_2035: ['Y2035','NO_NEWHYDRO','H_B','H_RCP8','COST_2035','COST_B_2035', 'LOCS_2035_B', 'NO_IMPORT']
+    l_rcp2_B_2035: ['Y2035','NO_NEWHYDRO','L_B','L_RCP2','COST_2035','COST_B_2035', 'LOCS_2035_B', 'NO_IMPORT']
+    l_rcp8_B_2035: ['Y2035','NO_NEWHYDRO','L_B','L_RCP8','COST_2035','COST_B_2035', 'LOCS_2035_B', 'NO_IMPORT']
+    h_rcp2_B_2050: ['Y2050','NO_NEWHYDRO','H_B','H_RCP2','COST_2050','COST_B_2050', 'LOCS_2050_B', 'NO_IMPORT']
+    h_rcp8_B_2050: ['Y2050','NO_NEWHYDRO','H_B','H_RCP8','COST_2050','COST_B_2050', 'LOCS_2050_B', 'NO_IMPORT']
+    l_rcp2_B_2050: ['Y2050','NO_NEWHYDRO','L_B','L_RCP2','COST_2050','COST_B_2050', 'LOCS_2050_B', 'NO_IMPORT']
+    l_rcp8_B_2050: ['Y2050','NO_NEWHYDRO','L_B','L_RCP8','COST_2050','COST_B_2050', 'LOCS_2050_B', 'NO_IMPORT']
+
+    h_rcp2_C_2035: ['Y2035','NO_NEWHYDRO','H_C','H_RCP2','COST_2035','COST_C_2035', 'LOCS_2035_C', 'NO_IMPORT']
+    h_rcp8_C_2035: ['Y2035','NO_NEWHYDRO','H_C','H_RCP8','COST_2035','COST_C_2035', 'LOCS_2035_C', 'NO_IMPORT']
+    l_rcp2_C_2035: ['Y2035','NO_NEWHYDRO','L_C','L_RCP2','COST_2035','COST_C_2035', 'LOCS_2035_C', 'NO_IMPORT']
+    l_rcp8_C_2035: ['Y2035','NO_NEWHYDRO','L_C','L_RCP8','COST_2035','COST_C_2035', 'LOCS_2035_C', 'NO_IMPORT']
+    h_rcp2_C_2050: ['Y2050','NO_NEWHYDRO','H_C','H_RCP2','COST_2050','COST_C_2050', 'LOCS_2050_C', 'NO_IMPORT']
+    h_rcp8_C_2050: ['Y2050','NO_NEWHYDRO','H_C','H_RCP8','COST_2050','COST_C_2050', 'LOCS_2050_C', 'NO_IMPORT']
+    l_rcp2_C_2050: ['Y2050','NO_NEWHYDRO','L_C','L_RCP2','COST_2050','COST_C_2050', 'LOCS_2050_C', 'NO_IMPORT']
+    l_rcp8_C_2050: ['Y2050','NO_NEWHYDRO','L_C','L_RCP8','COST_2050','COST_C_2050', 'LOCS_2050_C', 'NO_IMPORT']
+
+    h_rcp2_BAU_2035: ['Y2035','NO_NEWHYDRO','H_BAU','H_RCP2','COST_2035','COST_BAU_2035', 'LOCS_2035_BAU', 'NO_IMPORT']
+    h_rcp8_BAU_2035: ['Y2035','NO_NEWHYDRO','H_BAU','H_RCP8','COST_2035','COST_BAU_2035', 'LOCS_2035_BAU', 'NO_IMPORT']
+    l_rcp2_BAU_2035: ['Y2035','NO_NEWHYDRO','L_BAU','L_RCP2','COST_2035','COST_BAU_2035', 'LOCS_2035_BAU', 'NO_IMPORT']
+    l_rcp8_BAU_2035: ['Y2035','NO_NEWHYDRO','L_BAU','L_RCP8','COST_2035','COST_BAU_2035', 'LOCS_2035_BAU', 'NO_IMPORT']
+    h_rcp2_BAU_2050: ['Y2050','NO_NEWHYDRO','H_BAU','H_RCP2','COST_2050','COST_BAU_2050', 'LOCS_2050_BAU', 'NO_IMPORT']
+    h_rcp8_BAU_2050: ['Y2050','NO_NEWHYDRO','H_BAU','H_RCP8','COST_2050','COST_BAU_2050', 'LOCS_2050_BAU', 'NO_IMPORT']
+    l_rcp2_BAU_2050: ['Y2050','NO_NEWHYDRO','L_BAU','L_RCP2','COST_2050','COST_BAU_2050', 'LOCS_2050_BAU', 'NO_IMPORT']
+    l_rcp8_BAU_2050: ['Y2050','NO_NEWHYDRO','L_BAU','L_RCP8','COST_2050','COST_BAU_2050', 'LOCS_2050_BAU', 'NO_IMPORT']
+
+overrides:
+
+    Y2019:
+        model.subset_time: ['2019-01-01', '2019-12-31']
+
+    Y2035:
+        model.subset_time: ['2035-01-01', '2035-12-31']
+
+    Y2050:
+        model.subset_time: ['2050-01-01', '2050-12-31']
+
+    NO_IMPORT:
+        #IMPORTS OFF
+#        techs.import_syn_diesel.exists: false
+#        techs.import_syn_gasoline.exists: false
+#        techs.import_liquidfueloil.exists: false
+#        techs.import_electricity.exists: false
+#        techs.import_naturalgas.exists: false
+#        techs.import_biomethane.exists: false
+#        techs.import_hydrogen.exists: false
+        techs.import_wood.exists: false
+        techs.import_biogas.exists: false
+#        techs.import_pellets.exists: false
+
+    NO_NEWHYDRO:
+        techs.hydro_runofriver_new.exists: false
+
+    H_A:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_high_A.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_high_A.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_high_A.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_high_A.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_high_A.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_high_A.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_high_A.csv #in tkm
+
+    L_A:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_low_A.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_low_A.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_low_A.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_low_A.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_low_A.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_low_A.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_low_A.csv #in tkm
+
+    H_B:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_high_B.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_high_B.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_high_B.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_high_B.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_high_B.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_high_B.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_high_B.csv #in tkm
+
+    L_B:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_low_B.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_low_B.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_low_B.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_low_B.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_low_B.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_low_B.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_low_B.csv #in tkm
+
+    H_BAU:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_high_BAU.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_high_BAU.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_high_BAU.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_high_BAU.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_high_BAU.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_high_BAU.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_high_BAU.csv #in tkm
+
+    L_BAU:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_low_BAU.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_low_BAU.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_low_BAU.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_low_BAU.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_low_BAU.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_low_BAU.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_low_BAU.csv #in tkm
+
+    H_C:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_high_C.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_high_C.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_high_C.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_high_C.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_high_C.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_high_C.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_high_C.csv #in tkm
+
+    L_C:
+        techs.demand_pkm_private.constraints.resource: file=demand_private_pkm_low_C.csv #in pkm
+        techs.demand_pkm_private_BEV.constraints.resource: file=demand_private_pkm_BEV_low_C.csv #in pkm
+        techs.demand_pkm_public_bus.constraints.resource: file=demand_bus_pkm_low_C.csv #in pkm
+        techs.demand_pkm_public_bus_BEV.constraints.resource: file=demand_bus_pkm_BEV_low_C.csv #in pkm
+        techs.demand_pkm_public_tram.constraints.resource: file=demand_tram_pkm_low_C.csv #in pkm
+        techs.demand_tkm.constraints.resource: file=demand_freight_tkm_low_C.csv #in tkm
+        techs.demand_tkm_BEV.constraints.resource: file=demand_freight_tkm_BEV_low_C.csv #in tkm
+
+    H_RCP2:
+        techs.demand_electricity.constraints.resource: file=demand_elec_high_rcp2.csv #in kWh
+        techs.demand_ltheat.constraints.resource: file=demand_ltheat_high_rcp2.csv #in kWh
+        techs.demand_htheat.constraints.resource: file=demand_htheat_high_rcp2.csv #in kWh
+        techs.hydro_runofriver_new.constraints.resource: file=pot_hydrorunoff_rcp2.csv #in kWh
+
+    H_RCP8:
+        techs.demand_electricity.constraints.resource: file=demand_elec_high_rcp8.csv #in kWh
+        techs.demand_ltheat.constraints.resource: file=demand_ltheat_high_rcp8.csv #in kWh
+        techs.demand_htheat.constraints.resource: file=demand_htheat_high_rcp8.csv #in kWh
+        techs.hydro_runofriver_new.constraints.resource: file=pot_hydrorunoff_rcp8.csv #in kWh
+
+    L_RCP2:
+        techs.demand_electricity.constraints.resource: file=demand_elec_low_rcp2.csv #in kWh
+        techs.demand_ltheat.constraints.resource: file=demand_ltheat_low_rcp2.csv #in kWh
+        techs.demand_htheat.constraints.resource: file=demand_htheat_low_rcp2.csv #in kWh
+        techs.hydro_runofriver_new.constraints.resource: file=pot_hydrorunoff_rcp2.csv #in kWh
+
+    L_RCP8:
+        techs.demand_electricity.constraints.resource: file=demand_elec_low_rcp8.csv #in kWh
+        techs.demand_ltheat.constraints.resource: file=demand_ltheat_low_rcp8.csv #in kWh
+        techs.demand_htheat.constraints.resource: file=demand_htheat_low_rcp8.csv #in kWh
+        techs.hydro_runofriver_new.constraints.resource: file=pot_hydrorunoff_rcp8.csv #in kWh
+
+    COST_2019:
+        techs.local_wood.costs.monetary.om_prod: 0.035 #CHF/kWh
+        techs.local_waste.costs.monetary.om_prod: 0.008 #CHF/kWh
+        techs.import_gasoline.costs.monetary.om_prod: 0.074 #CHF/kWh
+        techs.import_diesel.costs.monetary.om_prod: 0.076 #CHF/kWh
+        techs.import_liquidfueloil.costs.monetary.om_prod: 0.068 #CHF/kWh
+        techs.import_naturalgas.costs.monetary.om_prod: 0.062 #CHF/kWh 0.042 + 0.02 gas grid costs
+        techs.import_biomethane.costs.monetary.om_prod: 0.062 #CHF/kWh 0.042 + 0.02 gas grid costs
+        techs.import_biogas.costs.monetary.om_prod: 0.042 #CHF/kWh
+        techs.import_pellets.costs.monetary.om_prod: 0.05 #CHF/kWh
+        techs.import_hydrogen.costs.monetary.om_prod: 0.117 #CHF/kWh 0.097 + 0.02 gas grid costs
+
+
+
+    COST_2035:
+        techs.local_wood.costs.monetary.om_prod: 0.039 #CHF/kWh
+        techs.local_waste.costs.monetary.om_prod: 0.009 #CHF/kWh
+        techs.import_gasoline.costs.monetary.om_prod: 0.084 #CHF/kWh
+        techs.import_diesel.costs.monetary.om_prod: 0.086 #CHF/kWh
+        techs.import_liquidfueloil.costs.monetary.om_prod: 0.077 #CHF/kWh
+        techs.import_naturalgas.costs.monetary.om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.import_biomethane.costs.monetary.om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.import_biogas.costs.monetary.om_prod: 0.045 #CHF/kWh
+        techs.import_pellets.costs.monetary.om_prod: 0.054 #CHF/kWh
+        techs.import_syn_diesel.costs.monetary.om_prod: 0.086 #CHF/kWh
+        techs.import_syn_gasoline.costs.monetary.om_prod: 0.084 #CHF/kWh
+        techs.import_syn_liquidfueloil.costs.monetary.om_prod: 0.077 #CHF/kWh
+        techs.import_hydrogen.costs.monetary.om_prod: 0.169 #CHF/kWh 0.149 + 0.02 gas grid costs
+        techs.gasification_methanisation.costs.monetary.om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.pressure_swing_adsorption.costs.monetary.om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.methanation.costs.monetary.om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.electrolysis.costs.monetary.om_prod: 0.169 #CHF/kWh 0.149 + 0.02 gas grid costs
+
+    COST_2050:
+        techs.local_wood.costs.monetary.om_prod: 0.041 #CHF/kWh
+        techs.local_waste.costs.monetary.om_prod: 0.009 #CHF/kWh
+        techs.import_gasoline.costs.monetary.om_prod: 0.091 #CHF/kWh
+        techs.import_diesel.costs.monetary.om_prod: 0.093 #CHF/kWh
+        techs.import_liquidfueloil.costs.monetary.om_prod: 0.084 #CHF/kWh
+        techs.import_naturalgas.costs.monetary.om_prod: 0.07 #CHF/kWh 0.05 + 0.02 gas grid costs
+        techs.import_biomethane.costs.monetary.om_prod: 0.07 #CHF/kWh 0.05 + 0.02 gas grid costs
+        techs.import_biogas.costs.monetary.om_prod: 0.05 #CHF/kWh
+        techs.import_pellets.costs.monetary.om_prod: 0.056 #CHF/kWh
+        techs.import_syn_diesel.costs.monetary.om_prod: 0.093 #CHF/kWh
+        techs.import_syn_gasoline.costs.monetary.om_prod: 0.091 #CHF/kWh
+        techs.import_syn_liquidfueloil.costs.monetary.om_prod: 0.084 #CHF/kWh
+        techs.import_hydrogen.costs.monetary.om_prod: 0.181 #CHF/kWh 0.161 + 0.02 gas grid costs
+        techs.gasification_methanisation.costs.monetary.om_prod: 0.07 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.pressure_swing_adsorption.costs.monetary.om_prod: 0.07 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.methanation.costs.monetary.om_prod: 0.07 #CHF/kWh 0.045 + 0.02 gas grid costs
+        techs.electrolysis.costs.monetary.om_prod: 0.181 #CHF/kWh 0.149 + 0.02 gas grid costs
+
+    COST_A_2019:
+        techs.import_electricity.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+    COST_A_2035:
+        techs.import_electricity.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+    COST_A_2050:
+        techs.import_electricity.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.251 #CHF/kWh 0.171 + 0.08 grid costs
+
+    COST_B_2019:
+        techs.import_electricity.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.ccgt_naturalgas.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.ccgt_biomethane.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.ccgt_ccs_naturalgas.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.ccgt_ccs_biomethane.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+    COST_B_2035:
+        techs.import_electricity.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.ccgt_naturalgas.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.ccgt_biomethane.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.ccgt_ccs_naturalgas.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+        techs.ccgt_ccs_biomethane.costs.monetary.om_prod: 0.17 #CHF/kWh 0.09 + 0.08 grid costs
+    COST_B_2050:
+        techs.import_electricity.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.ccgt_naturalgas.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.ccgt_biomethane.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.ccgt_ccs_naturalgas.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+        techs.ccgt_ccs_biomethane.costs.monetary.om_prod: 0.275 #CHF/kWh 0.195 + 0.08 grid costs
+
+    COST_BAU_2019:
+        techs.import_electricity.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+    COST_BAU_2035:
+        techs.import_electricity.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.164 #CHF/kWh 0.084 + 0.08 grid costs
+    COST_BAU_2050:
+        techs.import_electricity.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod:  0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+
+    COST_C_2019:
+        techs.import_electricity.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.144 #CHF/kWh 0.064 + 0.08 grid costs
+    COST_C_2035:
+        techs.import_electricity.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.169 #CHF/kWh 0.089 + 0.08 grid costs
+    COST_C_2050:
+        techs.import_electricity.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+        techs.hydro_runofriver.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+        techs.hydro_runofriver_new.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+        techs.photovoltaic.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+        techs.PVrooftop_new.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+        techs.PVfacade_new.costs.monetary.om_prod: 0.259 #CHF/kWh 0.179 + 0.08 grid costs
+
+    LOCS_2035_A:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.co2_air_capture.exists: false
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_syn_diesel.exists: false
+        techs.import_syn_gasoline.exists: false
+        techs.bus_syndiesel.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_syndiesel.exists: false
+        techs.car_syngasoline.exists: false
+        techs.car_naturalgas.exists: false
+        techs.car_plugin_hybrid_syngasoline.exists: false
+        techs.car_plugin_hybrid_syndiesel.exists: false
+        techs.freight_syndiesel.exists: false
+        techs.freight_syngasoline.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.freight_plugin_hybrid_syndiesel.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+
+    LOCS_2035_B:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.co2_air_capture.exists: false
+        techs.methanation.exists: false
+        techs.import_syn_diesel.exists: false
+        techs.import_syn_gasoline.exists: false
+        techs.bus_syndiesel.exists: false
+        techs.car_syndiesel.exists: false
+        techs.car_syngasoline.exists: false
+        techs.car_plugin_hybrid_syngasoline.exists: false
+        techs.car_plugin_hybrid_syndiesel.exists: false
+        techs.freight_syndiesel.exists: false
+        techs.freight_syngasoline.exists: false
+        techs.freight_plugin_hybrid_syndiesel.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+
+    LOCS_2035_C:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.co2_air_capture.exists: false
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_syn_diesel.exists: false
+        techs.import_syn_gasoline.exists: false
+        techs.bus_syndiesel.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_syndiesel.exists: false
+        techs.car_syngasoline.exists: false
+        techs.car_naturalgas.exists: false
+        techs.car_plugin_hybrid_syngasoline.exists: false
+        techs.car_plugin_hybrid_syndiesel.exists: false
+        techs.freight_syndiesel.exists: false
+        techs.freight_syngasoline.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.freight_plugin_hybrid_syndiesel.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+
+    LOCS_2035_BAU:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.co2_air_capture.exists: false
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_syn_diesel.exists: false
+        techs.import_syn_gasoline.exists: false
+        techs.bus_syndiesel.exists: false
+        techs.car_syndiesel.exists: false
+        techs.car_syngasoline.exists: false
+        techs.car_plugin_hybrid_syngasoline.exists: false
+        techs.car_plugin_hybrid_syndiesel.exists: false
+        techs.freight_syndiesel.exists: false
+        techs.freight_syngasoline.exists: false
+        techs.freight_plugin_hybrid_syndiesel.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+
+    LOCS_2050_A:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_diesel.exists: false
+        techs.import_gasoline.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_naturalgas.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+        techs.gasification_methanisation.exists: false
+
+    LOCS_2050_B:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.import_diesel.exists: false
+        techs.import_gasoline.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_naturalgas.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+        techs.gasification_methanisation.exists: false
+
+    LOCS_2050_C:
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_diesel.exists: false
+        techs.import_gasoline.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_naturalgas.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.DH_biogas.exists: false
+        techs.gasification_methanisation.exists: false
+
+    LOCS_2050_BAU:
+        techs.F_T_gasoline.exists: false
+        techs.F_T_diesel.exists: false
+        techs.methanation.exists: false
+        techs.ccgt_naturalgas.exists: false
+        techs.ccgt_ccs_naturalgas.exists: false
+        techs.ccgt_biomethane.exists: false
+        techs.ccgt_ccs_biomethane.exists: false
+        techs.import_syn_gasoline.exists: false
+        techs.bus_syndiesel.exists: false
+        techs.bus_naturalgas.exists: false
+        techs.car_syndiesel.exists: false
+        techs.car_syngasoline.exists: false
+        techs.car_naturalgas.exists: false
+        techs.car_plugin_hybrid_syngasoline.exists: false
+        techs.car_plugin_hybrid_syndiesel.exists: false
+        techs.freight_syngasoline.exists: false
+        techs.freight_naturalgas.exists: false
+        techs.CHP_hydrogen.exists: false
+        techs.pyrolysis.exists: false
+        techs.import_syn_liquidfueloil.exists: false
+        techs.DH_biogas.exists: false
+        techs.gasification_methanisation.exists: false

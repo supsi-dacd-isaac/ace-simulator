@@ -1,0 +1,261 @@
+locations:
+    AIL: #1
+        techs:
+        # new techs
+            F_T_gasoline:
+            F_T_diesel:
+            electrolysis:
+            co2_air_capture:
+            methanation:
+            H2_storage:
+            CO2_storage:
+            ccgt_naturalgas:
+            ccgt_ccs_naturalgas:
+            ccgt_biomethane:
+            ccgt_ccs_biomethane:
+        # techs
+            hydro_runofriver:
+            hydro_runofriver_new:
+            phs_new:
+        # import
+            import_electricity:
+            import_naturalgas:
+            import_biomethane:
+            import_hydrogen:
+            import_diesel:
+            import_syn_diesel:
+            import_gasoline:
+            import_syn_gasoline:
+            export_CO2:
+            export_renCO2:
+        # mobility
+            bus_diesel:
+            bus_syndiesel:
+            bus_naturalgas:
+            bus_biomethane:
+            bus_battery_electric:
+            bus_fc:
+            car_diesel:
+            car_syndiesel:
+            car_gasoline:
+            car_syngasoline:
+            car_naturalgas:
+            car_biomethane:
+            car_fc:
+            car_plugin_hybrid_gasoline:
+            car_plugin_hybrid_diesel:
+            car_plugin_hybrid_syngasoline:
+            car_plugin_hybrid_syndiesel:
+            freight_diesel:
+            freight_syndiesel:
+            freight_gasoline:
+            freight_syngasoline:
+            freight_naturalgas:
+            freight_biomethane:
+            freight_fc:
+            freight_plugin_hybrid_diesel:
+            freight_plugin_hybrid_syndiesel:
+            tram_electric:
+        # demand
+            demand_pkm_public_bus:
+            demand_pkm_public_bus_BEV:
+            demand_tkm:
+            demand_pkm_private:
+            demand_pkm_public_tram:
+        # transmission
+            electricity_transmission:
+            naturalgas_transmission:
+            hydrogen_transmission:
+            CO2_transmission:
+            biomethane_transmission:
+            renCO2_transmission:
+
+    sezioni_gas: #2
+        techs:
+            HP_naturalgas:
+            HP_biomethane:
+            boiler_naturalgas:
+            boiler_biomethane:
+            ind_boiler_naturalgas:
+            ind_boiler_biomethane:
+            DH_naturalgas:
+            DH_biomethane:
+            DH_CHP_naturalgas:
+            DH_CHP_biomethane:
+            CHP_naturalgas:
+            CHP_biomethane:
+            CHP_hydrogen:
+            ind_CHP_naturalgas:
+            ind_CHP_biomethane:
+            ASHP:
+            GSHP:
+            WSHP:
+            WSHP_ANER:
+            solar_thermal:
+            boiler_biogas:
+            boiler_wood:
+            boiler_pellets:
+            boiler_lfo:
+            boiler_synlfo:
+            boiler_electric:
+            ind_boiler_lfo:
+            ind_boiler_synlfo:
+            ind_boiler_wood:
+            ind_boiler_biogas:
+            ind_HP:
+            ind_electric:
+            ind_CHP_wood:
+            ind_CHP_biogas:
+            DH_wood:
+            DH_biogas:
+            DH_lfo:
+            DH_synlfo:
+            DH_HP:
+            DH_CHP_wood:
+            DH_CHP_wastewater:
+                constraints:
+                    energy_cap_max: 72933 #kW (assuming 1500 hour of full power operation)
+        # distributed sources
+            battery_storage:
+                constraints:
+                    energy_cap_max: 428036.05 # 67946 # max = 2428036.05
+            photovoltaic:
+                constraints:
+                    energy_cap_equals: 14898
+            PVrooftop_new:
+                constraints:
+                    energy_cap_max: 952862.3486 # 181190 # max 952862.3486
+            PVfacade_new:
+                constraints:
+                    energy_cap_max: 665828.3515 # 0 # max = 665828.3515
+            local_wood:
+            local_waste:
+            local_water:
+            local_water_aner:
+            local_ground:
+            local_air:
+            local_sun:
+        # new techs
+            anaerobic_digestion:
+            pyrolysis:
+            pressure_swing_adsorption:
+            gasification_methanisation:
+        # import
+            import_liquidfueloil:
+            import_syn_liquidfueloil:
+            import_pellets:
+            import_wood:
+            import_biogas:
+            export_CO2:
+            export_renCO2:
+        # mobility
+            car_battery_electric:
+            freight_battery_electric:
+        # demand
+            demand_electricity:
+            demand_ltheat:
+            demand_htheat:
+            demand_pkm_private_BEV:
+            demand_tkm_BEV:
+        # transmission
+            electricity_transmission:
+            naturalgas_transmission:
+            hydrogen_transmission:
+            CO2_transmission:
+            biomethane_transmission:
+            renCO2_transmission:
+
+    sezioni_nongas: #3
+        techs:
+            ASHP:
+            GSHP:
+            WSHP:
+            solar_thermal:
+            boiler_biogas:
+            boiler_wood:
+            boiler_pellets:
+            boiler_lfo:
+            boiler_synlfo:
+            boiler_electric:
+            ind_boiler_lfo:
+            ind_boiler_synlfo:
+            ind_boiler_wood:
+            ind_boiler_biogas:
+            ind_HP:
+            ind_electric:
+            ind_CHP_wood:
+            ind_CHP_biogas:
+            DH_wood:
+            DH_biogas:
+            DH_lfo:
+            DH_synlfo:
+            DH_HP:
+            DH_CHP_wood:
+            DH_CHP_wastewater:
+                constraints:
+                    energy_cap_max: 8200 #kW (assuming 1500 hour of full power operation)
+        # distributed sources
+            battery_storage:
+                constraints:
+                    energy_cap_max: 2281799.46 #35382 # max = 2281799.46 # kWh =1.5kW PV
+            photovoltaic:
+                constraints:
+                    energy_cap_equals: 15679 # kW installed by 2019
+            PVrooftop_new:
+                constraints:
+                    energy_cap_max: 899932.8064 # 94353 # max =899932.8064
+            PVfacade_new:
+                constraints:
+                    energy_cap_max: 621266.8337 #0 # max =621266.8337
+            local_wood:
+            local_waste:
+            local_water:
+            local_ground:
+            local_air:
+            local_sun:
+        # new techs
+            anaerobic_digestion:
+            pyrolysis:
+        # import
+            import_liquidfueloil:
+            import_syn_liquidfueloil:
+            import_pellets:
+            import_wood:
+            import_biogas:
+            export_CO2:
+            export_renCO2:
+        # mobility
+            car_battery_electric:
+            freight_battery_electric:
+        # demand
+            demand_electricity:
+            demand_ltheat:
+            demand_htheat:
+            demand_pkm_private_BEV:
+            demand_tkm_BEV:
+        # transmission
+            electricity_transmission:
+#           naturalgas_transmission:
+#           hydrogen_transmission:
+            CO2_transmission:
+            renCO2_transmission:
+#           biomethane_transmission:
+
+links:
+    AIL,sezioni_gas:
+        techs:
+            electricity_transmission:
+            naturalgas_transmission:
+            hydrogen_transmission:
+            CO2_transmission:
+            biomethane_transmission:
+            renCO2_transmission:
+
+    AIL,sezioni_nongas:
+        techs:
+            electricity_transmission:
+#            naturalgas_transmission:
+#            hydrogen_transmission:
+            CO2_transmission:
+            renCO2_transmission:
+#            biomethane_transmission:

@@ -1,0 +1,2579 @@
+techs:
+
+##### Heat #####
+  WSHP: #
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      primary_carrier_in: electricity
+      carrier_in: electricity
+      carrier_in_2: water
+      name: "WSHP"
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kW
+      lifetime: 18  #
+      energy_eff: 4
+      carrier_ratios.carrier_in_2.water: 3
+    costs:
+      monetary:
+        energy_cap: 2300 #CHF/kW
+        om_annual: 22.48 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 164.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  WSHP_ANER: # termopome per rete anergetica
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      primary_carrier_in: electricity
+      carrier_in: electricity
+      carrier_in_2: water_aner
+      name: "WSHP - anergetic network"
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kW
+      lifetime: 18  #
+      energy_eff: 4 #
+      carrier_ratios.carrier_in_2.water_aner: 3
+    costs:
+      monetary:
+        energy_cap: 1380 #CHF/kW
+        om_annual: 22.48 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 164.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  GSHP: #geothermal and water-to-water heat pump
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      primary_carrier_in: electricity
+      carrier_in: electricity
+      carrier_in_2: ground
+      name: 'GSHP'
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kW
+      lifetime: 18  #
+      energy_eff: 4 #
+      carrier_ratios.carrier_in_2.ground: 3
+    costs:
+      monetary:
+        energy_cap: 2600 #CHF/kW
+        om_annual: 22.48 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 164.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ASHP: #geothermal and water-to-water heat pump
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      primary_carrier_in: electricity
+      carrier_in: electricity
+      carrier_in_2: air
+      name: 'ASHP'
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kWth
+      lifetime: 18
+      energy_eff: 3
+      carrier_ratios.carrier_in.electricity: 1
+      carrier_ratios.carrier_in_2.air: 2
+    costs:
+      monetary:
+        energy_cap: 2100 #CHF/kW
+        om_annual: 22.48 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 164.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  HP_naturalgas: #geothermal and water-to-water heat pump
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      carrier_out_2: CO2
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      carrier_in_3: air
+      primary_carrier_out: ltheat
+      primary_carrier_in: naturalgas
+      name: 'HP_naturalgas'
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kWth
+      lifetime: 20
+      energy_eff: 1.4
+      carrier_ratios.carrier_in_2.hydrogen: 0.11
+      carrier_ratios.carrier_in_3.air: 0.44
+      carrier_ratios.carrier_out_2.CO2: 0.161
+    costs:
+      monetary:
+        energy_cap: 337.1 #CHF/kW
+        om_annual: 10.11 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 381.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  HP_biomethane: #geothermal and water-to-water heat pump
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat #assumed to produce low temperature heat and no high temperature heat
+      carrier_out_2: renCO2
+      carrier_in:  biomethane
+      carrier_in_2: hydrogen
+      carrier_in_3: air
+      primary_carrier_out: ltheat
+      primary_carrier_in: biomethane
+      name: 'HP_biomethane'
+      color: '#FFBF00'
+    constraints:
+      energy_cap_max: inf # kWth
+      lifetime: 20
+      energy_eff: 1.4
+      carrier_ratios.carrier_in_2.hydrogen: 0.11
+      carrier_ratios.carrier_in_3.air: 0.44
+      carrier_ratios.carrier_out_2.renCO2: 0.161
+    costs:
+      monetary:
+        energy_cap: 337.1 #CHF/kWth
+        om_annual: 10.11 #CHF/kWth/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 381.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  solar_thermal: #Decentralized heating technology
+    essentials:
+      parent: conversion
+      carrier_out: ltheat
+      carrier_in: sun
+      name: 'Solar thermal'
+      color: '#FFFF00'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1 #
+      lifetime: 20 #
+    costs:
+      monetary:
+        energy_cap: 768 #CHF/kW
+        om_annual: 8.64 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 221.2 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      name: 'boiler_naturalgas' #
+      color: '#1930FE'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.9 #
+      carrier_ratios.carrier_out.CO2: 0.251
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+    costs:
+      monetary:
+        energy_cap: 945 #CHF/kW,
+        om_annual: 5.08 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      primary_carrier_in: biomethane
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      name: 'boiler_biomethane' #
+      color: '#1930FE'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.9 #
+      carrier_ratios.carrier_out.renCO2: 0.251
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+    costs:
+      monetary:
+        energy_cap: 945 #CHF/kW,
+        om_annual: 5.08 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_biogas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      carrier_in: biogas
+      name: 'boiler_biogas' #
+      color: '#1930FE'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.9 #
+      carrier_ratios.carrier_out.renCO2: 0.387
+    costs:
+      monetary:
+        energy_cap: 945 #CHF/kW,
+        om_annual: 5.08 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_wood: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      carrier_in: wood
+      name: 'boiler_wood'
+      color: '#5FB404'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.85 #
+      carrier_ratios.carrier_out_2.renCO2: 0.548
+      lifetime: 17 #
+    costs:
+      monetary:
+        energy_cap: 1055 #CHF/kW, JASM_STEM avg SFH-MFH
+        om_annual: 17.28 #CHF/kW/y, JASM_STEM avg SFH-MFH
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_pellets: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      carrier_in: pellets
+      name: 'boiler_pellets'
+      color: '#5FB404'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.9 #
+      carrier_ratios.carrier_out_2.renCO2: 0.518
+      lifetime: 17 #
+    costs:
+      monetary:
+        energy_cap: 1495 #CHF/kW, JASM_STEM avg SFH-MFH
+        om_annual: 17.28 #CHF/kW/y, JASM_STEM avg SFH-MFH
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_electric:
+    essentials:
+      parent: conversion
+      carrier_out: ltheat
+      carrier_in: electricity
+      name: 'boiler_electric' #distributed heating technology
+      color: '#6108BA'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 15 #JASM_STEM avg SFH-MFH
+      energy_eff: 1 #JASM_STEM avg SFH-MFH
+    costs:
+      monetary:
+        energy_cap: 640 #CHF/kW, JASM_STEM avg SFH-MFH
+        om_annual: 0.19 #CHF/kW/y, JASM_STEM avg SFH-MFH
+        interest_rate: 0.025
+      co2:
+        energy_cap: 1.5 #kgCO2-eq./kW
+        interest_rate:  0.000001
+
+  boiler_lfo:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_in: liquidfueloil
+      carrier_out: ltheat
+      carrier_out_2: CO2
+      name: 'boiler_lfo' #
+      color: '#616A6B'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17.0  #
+      energy_eff: 0.85 #
+      carrier_ratios.carrier_out_2.CO2: 0.332
+    costs:
+      monetary:
+        energy_cap: 152.1 #CHF/kW,
+        om_annual: 9.12 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  boiler_synlfo:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_in: syn_liquidfueloil
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      name: 'boiler_synlfo' #
+      color: '#616A6B'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17.0  #
+      energy_eff: 0.85 #
+      carrier_ratios.carrier_out_2.renCO2: 0.332
+    costs:
+      monetary:
+        energy_cap: 152.1 #CHF/kW,
+        om_annual: 9.12 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 21.1 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_naturalgas:
+    essentials:
+      parent: conversion_plus
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      carrier_out: ltheat
+      carrier_out_2: CO2
+      primary_carrier_out: ltheat
+      primary_carrier_in: naturalgas
+      name: 'DH_naturalgas' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 17 #
+      energy_eff: 0.93 #
+      carrier_ratios.carrier_out_2.CO2: 0.243
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 62.9 #CHF/kW, JASM_STEM
+        om_annual: 1.26 #CHF/kW/y,JASM_STEM
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_biomethane:
+    essentials:
+      parent: conversion_plus
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      primary_carrier_out: ltheat
+      primary_carrier_in: biomethane
+      name: 'DH_biomethane' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 17 #
+      energy_eff: 0.93 #
+      carrier_ratios.carrier_out_2.renCO2: 0.243
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 62.9 #CHF/kW, JASM_STEM
+        om_annual: 1.26 #CHF/kW/y,JASM_STEM
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_wood: #
+    essentials:
+      parent: conversion_plus
+      carrier_in: wood
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      name: 'DH_wood' #district heating technology
+      color: '#BADA55'
+    constraints:
+      energy_eff: 0.86 #
+      lifetime: 17 #
+      energy_cap_max: inf
+      carrier_ratios.carrier_out_2.renCO2: 0.542
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 123.0 #CHF/kW
+        om_annual: 2.46 #CHF/kW/y
+      co2:
+        energy_cap: 28.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_biogas: #
+    essentials:
+      parent: conversion_plus
+      carrier_in: biogas
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      name: 'DH_biogas' #district heating technology
+      color: '#BADA55'
+    constraints:
+      energy_eff: 0.86 #
+      lifetime: 17 #
+      energy_cap_max: inf
+      carrier_ratios.carrier_out_2.renCO2: 0.405
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 123.0 #CHF/kW
+        om_annual: 2.46 #CHF/kW/y
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_lfo:
+    essentials:
+      parent: conversion_plus
+      carrier_in: liquidfueloil
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: CO2
+      name: 'DH_lfo' #district heating technology
+      color: '#99A3A4'
+    constraints:
+      lifetime: 17  #J
+      energy_eff: 0.87 #
+      carrier_ratios.carrier_out_2.CO2: 0.324
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 58.6 #CHF/kW, JASM_STEM
+        om_annual: 1.26 #CHF/kW/y, JASM_STEM
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_synlfo:
+    essentials:
+      parent: conversion_plus
+      carrier_in: syn_liquidfueloil
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: renCO2
+      name: 'DH_lfo' #district heating technology
+      color: '#99A3A4'
+    constraints:
+      lifetime: 17  #J
+      energy_eff: 0.87 #
+      carrier_ratios.carrier_out_2.renCO2: 0.324
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 58.6 #CHF/kW, JASM_STEM
+        om_annual: 1.26 #CHF/kW/y, JASM_STEM
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+  DH_HP:
+    essentials:
+      parent: conversion_plus
+      carrier_out: ltheat
+      primary_carrier_in: electricity
+      carrier_in: electricity
+      carrier_in_2: air
+      name: 'DH_HP' #
+      color: '#BADA55'
+    constraints:
+      energy_eff: 4 #
+      lifetime: 25 #
+      energy_cap_max: inf
+      carrier_ratios.carrier_in_2.air: 3
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 368.2 #CHF/kW
+        om_annual: 12.81 #CHF/kW/y
+      co2:
+        energy_cap: 174.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_CHP_naturalgas:
+    essentials:
+      parent: conversion_plus
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: CO2
+      primary_carrier_out: ltheat
+      primary_carrier_in: naturalgas
+      name: 'DH_CHP_naturalgas' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 25 #
+      energy_eff: 0.4 #
+      carrier_ratios.carrier_out_2.electricity: 1.25
+      carrier_ratios.carrier_out_3.CO2: 0.565
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 1339.7 #CHF/kW,
+        om_annual: 40.08 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 490.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_CHP_biomethane:
+    essentials:
+      parent: conversion_plus
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      primary_carrier_out: ltheat
+      primary_carrier_in: biomethane
+      name: 'DH_CHP_biomethane' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 25 #
+      energy_eff: 0.4 #
+      carrier_ratios.carrier_out_2.electricity: 1.25
+      carrier_ratios.carrier_out_3.renCO2: 0.565
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 1339.7 #CHF/kW,
+        om_annual: 40.08 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 490.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_CHP_wood:
+    essentials:
+      parent: conversion_plus
+      carrier_in: wood
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      primary_carrier_out: ltheat
+      name: 'DH_CHP_wood' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 25 #
+      energy_eff: 0.53 #
+      carrier_ratios.carrier_out_2.electricity: 0.34
+      carrier_ratios.carrier_out_3.renCO2: 0.879
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 1154.2 #CHF/kW,
+        om_annual: 43.24 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 165.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  DH_CHP_wastewater:
+    essentials:
+      parent: conversion_plus
+      carrier_in: waste
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      primary_carrier_out: ltheat
+      name: 'DH_CHP_wastewater' #
+      color: '#1F618D'
+    constraints:
+      lifetime: 25 #
+      energy_eff: 0.45 #
+      carrier_ratios.carrier_out_2.electricity: 0.44
+      carrier_ratios.carrier_out_3.renCO2: 0.773
+      energy_cap_max: inf
+    costs:
+      monetary:
+        energy_cap: 3126.7 #CHF/kW,
+        om_annual: 118.88 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 647.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  CHP_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      name: 'CHP naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.46
+      carrier_ratios.carrier_out_2.electricity: 0.96
+      carrier_ratios.carrier_out_3.CO2: 0.491
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 20 #{Bauer et al., 2008}
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1504 #CHF/kWth, {Moret, 2017} {Prognos, 2012}
+        om_annual: 98.9 #CHF/kWth/y, {Moret, 2017} {Prognos, 2007}
+      co2:
+        energy_cap: 1024.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  CHP_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      primary_carrier_in: biomethane
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      name: 'CHP biomethane'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.46
+      carrier_ratios.carrier_out_2.electricity: 0.96
+      carrier_ratios.carrier_out_3.renCO2: 0.491
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 20 #{Bauer et al., 2008}
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1504 #CHF/kWth, {Moret, 2017} {Prognos, 2012}
+        om_annual: 98.9 #CHF/kWth/y, {Moret, 2017} {Prognos, 2007}
+      co2:
+        energy_cap: 1024.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  CHP_hydrogen:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: ltheat
+      carrier_out: ltheat
+      carrier_out_2: electricity
+      carrier_in: hydrogen
+      name: 'CHP_hydrogen'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.22
+      carrier_ratios.carrier_out_2.electricity: 2.64
+      lifetime: 20 #{Bauer et al., 2008}
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 7734 #CHF/kW
+        om_annual: 154.68 #CHF/kW/y,
+      co2:
+        energy_cap: 2193.5 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: CO2
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      primary_carrier_in: naturalgas
+      name: 'ind_boiler_naturalgas' #
+      color: '#85C1E9'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.93 #
+      carrier_ratios.carrier_out_2.CO2: 0.243
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+    costs:
+      monetary:
+        energy_cap: 62.9 #CHF/kWth,
+        om_annual: 1.26 #CHF/kWth/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: renCO2
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      primary_carrier_in: biomethane
+      name: 'ind_boiler_biomethane' #
+      color: '#85C1E9'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.93 #
+      carrier_ratios.carrier_out_2.renCO2: 0.243
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+    costs:
+      monetary:
+        energy_cap: 62.9 #CHF/kWth,
+        om_annual: 1.26 #CHF/kWth/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_lfo:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: CO2
+      carrier_in: liquidfueloil
+      name: 'ind_boiler_lfo' #
+      color: '#CCD1D1'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.87 #
+      carrier_ratios.carrier_out_2.CO2: 0.324
+    costs:
+      monetary:
+        energy_cap: 58.6 #CHF/kW,
+        om_annual: 1.26 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_synlfo:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: renCO2
+      carrier_in: syn_liquidfueloil
+      name: 'ind_boiler_synlfo' #
+      color: '#CCD1D1'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.87 #
+      carrier_ratios.carrier_out_2.renCO2: 0.324
+    costs:
+      monetary:
+        energy_cap: 58.6 #CHF/kW,
+        om_annual: 1.26 #CHF/kW/y,
+        interest_rate: 0.025
+      co2:
+        energy_cap: 12.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_wood:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: renCO2
+      carrier_in: wood
+      name: 'ind_boiler_wood' #
+      color: '#9CEC40'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.82 #
+      carrier_ratios.carrier_out_2.renCO2: 0.542
+    costs:
+      monetary:
+        energy_cap: 123 #CHF/kW
+        om_annual: 2.46 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 28.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_boiler_biogas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: renCO2
+      carrier_in: biogas
+      name: 'ind_boiler_biogas' #
+      color: '#9CEC40'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 17 #
+      energy_eff: 0.82 #
+      carrier_ratios.carrier_out_2.renCO2: 0.424
+    costs:
+      monetary:
+        energy_cap: 123 #CHF/kW
+        om_annual: 2.46 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 28.9 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_HP:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_in: electricity
+      carrier_out: htheat
+      carrier_in: electricity
+      carrier_in_2: air
+      name: 'ind_HP' #
+      color: '#9CEC40'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 15 #
+      energy_eff: 2.96 #
+      carrier_ratios.carrier_in_2.air: 1.96
+    costs:
+      monetary:
+        energy_cap: 363 #CHF/kW
+        om_annual: 3.1 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 174.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_electric:
+    essentials:
+      parent: conversion
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_in: electricity
+      name: 'ind_HP' #
+      color: '#9CEC40'
+    constraints:
+      energy_cap_max: inf
+      lifetime: 15 #
+      energy_eff: 1 #
+    costs:
+      monetary:
+        energy_cap: 354.9 #CHF/kW
+        om_annual: 1.61 #CHF/kW/y
+        interest_rate: 0.025
+      co2:
+        energy_cap: 1.5 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+#### HTHEAT ####
+
+  ind_CHP_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: electricity
+      carrier_out_3: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      name: 'ind_CHP_naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.46
+      carrier_ratios.carrier_out_2.electricity: 0.96
+      carrier_ratios.carrier_out_3.CO2: 0.491
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1504 #CHF/kW
+        om_annual: 98.9 #CHF/kW/y
+      co2:
+        energy_cap: 1024.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_CHP_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      primary_carrier_in: biomethane
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      name: 'ind_CHP_biomethane'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.46
+      carrier_ratios.carrier_out_2.electricity: 0.96
+      carrier_ratios.carrier_out_3.renCO2: 0.491
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1504 #CHF/kW
+        om_annual: 98.9 #CHF/kW/y
+      co2:
+        energy_cap: 1024.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_CHP_wood:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      carrier_in: wood
+      name: 'ind_CHP_wood'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.53
+      carrier_ratios.carrier_out_2.electricity: 0.34
+      carrier_ratios.carrier_out_3.renCO2: 0.879
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1154.2 #CHF/kW
+        om_annual: 43.24 #CHF/kW/y
+      co2:
+        energy_cap: 165.3 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ind_CHP_biogas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: htheat
+      carrier_out: htheat
+      carrier_out_2: electricity
+      carrier_out_3: renCO2
+      carrier_in: biogas
+      name: 'ind_CHP_biogas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.45
+      carrier_ratios.carrier_out_2.electricity: 0.44
+      carrier_ratios.carrier_out_3.renCO2: 0.773
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 3126.7 #CHF/kWth
+        om_annual: 118.88 #CHF/kWhth/y
+      co2:
+        energy_cap: 647.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+##### ELECTRICITY #####
+
+  hydro_runofriver:
+    essentials:
+      parent: supply_plus
+      carrier_out: electricity
+      name: 'Hydro'
+      color: '#7B19FE'
+    constraints:
+#      energy_cap_max: inf
+      resource: file=supply_hydro.csv #in kWh
+      resource_unit: energy #kWh
+      force_resource: true
+      energy_eff: 1 # efficiency included in .csv
+      lifetime: 40 #
+    costs:
+      monetary:
+        energy_cap: 0.00001 #CHF/kW,
+        om_annual: 53.9 #CHF/kW/y,
+        interest_rate: 0.025
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.013 #kgCO2-eq./kWh
+        energy_cap: 1263 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  hydro_runofriver_new: #
+    essentials:
+      parent: supply_plus
+      carrier_out: electricity
+      name: 'Hydro_new'
+      color: '#7B19FE'
+    constraints:
+      energy_cap_max: 885929.3963 #kW
+      resource: file=pot_hydrorunoff_rcp2.csv #in kWh
+      resource_unit: energy_per_cap #kWh/kW
+      force_resource: false
+      energy_eff: 1 # efficiency included in .csv
+      lifetime: 40 #
+    costs:
+      monetary:
+        energy_cap: 5919 #CHF/kW,
+        om_annual: 76.3 #CHF/kW/y,
+        interest_rate: 0.025
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.013 #kgCO2-eq./kWh
+        energy_cap: 1263 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  photovoltaic:
+    essentials:
+      parent: supply_plus
+      carrier_out: electricity
+      name: 'photovoltaic'
+      color: '#FFFF00'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+      resource: file=supply_PV.csv #in kWh/kW
+      resource_unit: energy_per_cap #kWh
+      force_resource: true
+      energy_eff: 1 # efficiency included in .csv
+      lifetime: 25 #
+    costs:
+      monetary:
+        energy_cap: 0.00001  #CHF/kW,
+        om_annual: 15.9 #CHF/kW/y
+        interest_rate: 0.025
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.1 #kgCO2-eq./kWh
+        energy_cap: 2081 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  PVrooftop_new:
+    essentials:
+      parent: supply_plus
+      carrier_out: electricity
+      name: 'PVrooftop'
+      color: '#FFFF00'
+    constraints:
+      energy_cap_max: inf # max kW potential defined in locations
+      resource: file=pot_PVroof.csv #in kWh/kW
+      resource_unit: energy_per_cap #kWh
+      force_resource: true
+      energy_eff: 1 # efficiency included in .csv
+      lifetime: 25 #{European Photovoltaic Technology Platform, 2011}
+    costs:
+      monetary:
+        energy_cap: 1000 #CHF/kW
+        om_annual: 15.9 #CHF/kW/y
+        interest_rate: 0.025
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.1 #kgCO2-eq./kWh
+        energy_cap: 2081 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  PVfacade_new:
+    essentials:
+      parent: supply_plus
+      carrier_out: electricity
+      name: 'PVfacade'
+      color: '#FFFF00'
+    constraints:
+      energy_cap_max: inf # max kW potential defined in locations
+      resource: file=pot_PVfacade.csv #in kWh/kW
+      resource_unit: energy_per_cap #kWh
+      force_resource: true
+      energy_eff: 1 # efficiency included in .csv
+      lifetime: 25 #{European Photovoltaic Technology Platform, 2011}
+    costs:
+      monetary:
+        energy_cap: 1000 #CHF/kW
+        om_annual: 15.9 #CHF/kW/y
+        interest_rate: 0.025
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.1 #kgCO2-eq./kWh
+        energy_cap: 2081 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ccgt_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: electricity
+      carrier_out: electricity
+      carrier_out_2: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      name: 'ccgt_naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.63
+      carrier_ratios.carrier_out_2.CO2: 0.359
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 824 #CHF/kWth
+        om_annual: 21.1 #CHF/kWhth/y
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.485 #kgCO2-eq./kWh
+        energy_cap: 183.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ccgt_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: electricity
+      carrier_out: electricity
+      carrier_out_2: renCO2
+      primary_carrier_in: biomethane
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      name: 'ccgt_naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.63
+      carrier_ratios.carrier_out_2.renCO2: 0.359
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 824 #CHF/kWth
+        om_annual: 21.1 #CHF/kWhth/y
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.114 #kgCO2-eq./kWh
+        energy_cap: 183.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ccgt_ccs_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: electricity
+      carrier_out: electricity
+      carrier_out_2: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      carrier_in_2: hydrogen
+      name: 'ccgt_ccs_naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.63
+      carrier_ratios.carrier_out_2.CO2: 0.036
+      carrier_ratios.carrier_in.naturalgas: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1273 #CHF/kWth
+        om_annual: 30.2 #CHF/kWhth/y
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.485 #kgCO2-eq./kWh
+        energy_cap: 183.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  ccgt_ccs_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: electricity
+      carrier_out: electricity
+      carrier_out_2: renCO2
+      primary_carrier_in: biomethane
+      carrier_in: biomethane
+      carrier_in_2: hydrogen
+      name: 'ccgt_ccs_naturalgas'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.63
+      carrier_ratios.carrier_out_2.renCO2: 0.036
+      carrier_ratios.carrier_in.biomethane: 0.9
+      carrier_ratios.carrier_in_2.hydrogen: 0.1
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1273 #CHF/kWth
+        om_annual: 30.2 #CHF/kWhth/y
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08 grid costs
+      co2:
+        om_prod: 0.114 #kgCO2-eq./kWh
+        energy_cap: 183.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+##### NEW TECHS #####
+
+  co2_air_capture:
+    essentials:
+      parent: conversion_plus
+      carrier_out: ccs_CO2
+      primary_carrier_in: CO2
+      carrier_in: [CO2, renCO2]
+      carrier_in_2: htheat
+      carrier_in_3: electricity
+      name: 'co2_air_capture'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.9
+      carrier_ratios.carrier_in_2.htheat: 2.35
+      carrier_ratios.carrier_in_3.electricity: 0.4
+      lifetime: 10
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 273.67 #CHF/kW
+        om_annual: 0 #CHF/kWh/y
+#      co2:
+#        energy_cap: 0 #kgCO2-eq./kW
+#        interest_rate: 0.000001
+
+  electrolysis:
+    essentials:
+      parent: conversion_plus
+      carrier_out: hydrogen
+      carrier_in: electricity
+      name: 'electrolysis'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.85
+      lifetime: 15
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 328.47 #CHF/kW
+        om_annual: 32.85 #CHF/kW/y
+        om_prod: 0.085 #CHF/kWh 0.065 + 0.02 gas grid costs
+#      co2:
+#        energy_cap: 0 #kgCO2-eq./kW
+#        interest_rate: 0.000001
+
+  gasification_methanisation:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: biomethane
+      carrier_out: biomethane
+      carrier_out_2: renCO2
+      carrier_in: wood
+      name: 'gasification_methanisation'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.63 #biomass-conv-tech_JASM, conv_tech_SES_ETH
+      carrier_ratios.carrier_out_2.renCO2: 0.74 #biomass-conv-tech_JASM -> need to check if per input or output kWh
+      lifetime: 2
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 2930 #CHF/kW
+        om_annual: 149 #CHF/kWh/y ->current value is for fixed O&M CHF/kW/y, need to find other value
+        om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  anaerobic_digestion:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: biogas
+      carrier_out: biogas
+      carrier_out_2: renCO2
+      carrier_in: waste
+      name: 'anaerobic_digestion'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.35
+      carrier_ratios.carrier_out_2.renCO2: 1.06 #
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1053 #CHF/kW
+        om_annual: 93.91 #CHF/kW/y
+        om_prod: 0.045 #CHF/kWh
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  pressure_swing_adsorption:
+    essentials:
+      parent: conversion_plus
+      carrier_out: biomethane
+      primary_carrier_in: biogas
+      carrier_in: biogas
+      carrier_in_2: electricity
+      name: 'pressure_swing_adsorption'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.96
+      carrier_ratios.carrier_in_2.electricity: 0.03
+      lifetime: 20
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1400 #CHF/kW
+        om_annual: 135 #CHF/kW/y
+        om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  pyrolysis:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: syn_liquidfueloil
+      carrier_out: syn_liquidfueloil
+      carrier_out_2: electricity
+      carrier_in: wood
+      name: 'pyrolysis'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.67
+      carrier_ratios.carrier_out_2.electricity: 0.03
+      lifetime: 25
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1435 #CHF/kW
+        om_annual: 71.77 #CHF/kW/y technologies_JASM_SES
+        om_prod: 0.077 #CHF/kWh
+      co2:
+        energy_cap: 10.8 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  F_T_diesel: #stadler et al. "Carbon Flows in the Energy Transition", Syngas produced from CO2 and H2 undergoes F-T reactions to produce linear waxes. Hydrocracking converts to synthetic diesel
+    essentials:
+      parent: conversion_plus
+      carrier_out: syn_diesel #carrier_out_2 = decentralized ltheat
+      primary_carrier_in: hydrogen
+      carrier_in: hydrogen
+      carrier_in_2: ccs_CO2
+#      carrier_in_3: electricity
+      name: 'F_T_diesel'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.31
+      carrier_ratios.carrier_in_2.ccs_CO2: 0.84
+#      carrier_ratios.carrier_in_3.electricity: 0.327 #biomass-conv-tech_JASM
+      lifetime: 15
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1955 #CHF/kW #biomass-conv-tech_JASM
+        om_annual: 6.33 #CHF/kW/y
+        om_prod: 0.086 #CHF/kWh
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  F_T_gasoline:
+    essentials:
+      parent: conversion_plus
+      carrier_out: syn_gasoline #carrier_out_2 = decentralized ltheat
+      primary_carrier_in: hydrogen
+      carrier_in: hydrogen
+      carrier_in_2: ccs_CO2
+#      carrier_in_3: electricity
+      name: 'F_T_gasoline'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.51
+      carrier_ratios.carrier_in_2.ccs_CO2: 0.83
+#      carrier_ratios.carrier_in_3.electricity: 0.327 #biomass-conv-tech_JASM
+      lifetime: 15
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 205.9 #CHF/kW #biomass-conv-tech_JASM
+        om_annual: 10.3 #CHF/kW/y
+        om_prod: 0.084 #CHF/kWh
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+  methanation:
+    essentials:
+      parent: conversion_plus
+      carrier_out: biomethane
+      primary_carrier_in: hydrogen
+      carrier_in: hydrogen
+      carrier_in_2: ccs_CO2
+      name: 'Methanation'
+      color: '#0776A5'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.71
+      carrier_ratios.carrier_in.hydrogen: 0.86
+      carrier_ratios.carrier_in_2.ccs_CO2: 0.14
+      lifetime: 20
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 2633 #CHF/kW
+        om_annual: 131.65 #CHF/kW/y
+        om_prod: 0.065 #CHF/kWh 0.045 + 0.02 gas grid costs
+      co2:
+        energy_cap: 40.16 #kgCO2-eq./kW
+        interest_rate: 0.000001
+
+
+##### STORAGE #####
+  battery_storage: #only battery storage types for long-term balancing considered
+    essentials:
+      parent: storage
+      carrier: electricity
+      name: 'Battery storage'
+      color: '#9FE2BF'
+    constraints:
+      energy_cap_max: inf
+      energy_cap_per_storage_cap_max: 1
+      energy_eff: 0.85 #{Shoenung, 2001} {Barin et al., 2009}, range: 60-85%, depending on the type of battery
+      lifetime: 20 #{Luo et al., 2015}, range: 5-20+ years
+    costs:
+      monetary:
+        interest_rate: 0.025
+        storage_cap: 150 #CHF/kWh
+        om_annual: 20 # CHF/kW/y
+
+
+  CO2_storage: #only battery storage types for long-term balancing considered
+    essentials:
+      parent: storage
+      carrier: ccs_CO2
+      name: 'CO2 storage'
+      color: '#9FE2BF'
+    constraints:
+      storage_cap_max: inf #
+      energy_cap_max: inf
+      energy_cap_per_storage_cap_max: 1
+      energy_eff: 1 #
+      lifetime: 20 #
+    costs:
+      monetary:
+        interest_rate: 0.025
+        storage_cap: 2 #CHF/kWh
+        om_annual: 1.5 # CHF/kW/y
+        om_prod: 0.0093 # CHF/kg commonly estimated at $10/tCO2. {Smith. E. et al, The cost of CO2 transport and storage in global integrated assessment modeling, 2021}
+
+  H2_storage: #only battery storage types for long-term balancing considered
+    essentials:
+      parent: storage
+      carrier: hydrogen
+      name: 'H2 storage'
+      color: '#9FE2BF'
+    constraints:
+      storage_cap_max: inf #
+      energy_cap_max: inf
+      energy_cap_per_storage_cap_max: 1
+      energy_eff: 1 #
+      lifetime: 20 #
+    costs:
+      monetary:
+        interest_rate: 0.025
+        storage_cap: 2 #CHF/kWh #CHF/kWh, {Kaldellis & Zafirakis, 2007}, Swiss Calliope
+        om_annual: 1.5 # CHF/kW/y, assumption range: 1.5-8.7 $/kW/y, Swiss Calliope
+
+  # pumped-hydro storage SWISS Calliope
+  phs_new:
+    essentials:
+      name: 'New pumped-hydro storage'
+      color: '#4875A0'
+      parent: storage
+      carrier: electricity
+    constraints:
+      energy_cap_per_storage_cap_equals: 0.01
+      energy_eff: 0.87  #
+      storage_loss: 0  # No loss over time assumed
+      lifetime: 50
+      energy_cap_min: 0
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 3218  # €/kW
+        om_annual: 48 # €/kW/year
+  # pumped-hydro storage-end
+
+  ##### PASSENGER TRANSPORT #####
+#passenger cars
+  car_diesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: CO2
+      carrier_in: diesel
+      name: 'car diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.564 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.11
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  car_syndiesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: renCO2
+      carrier_in: syn_diesel
+      name: 'car syn_diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.564 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.11
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  car_gasoline:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: CO2
+      carrier_in: gasoline
+      name: 'car gasoline'
+      color: '#6E6E6E'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.326 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.12
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  car_syngasoline:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: renCO2
+      carrier_in: syn_gasoline
+      name: 'car syn_gasoline'
+      color: '#6E6E6E'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.326 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.12
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  car_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: CO2
+      primary_carrier_in: naturalgas
+      carrier_in: naturalgas
+      name: 'car naturalgas'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.083 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.11
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  car_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: renCO2
+      carrier_in: biomethane
+      name: 'car biomethane'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.083 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.11
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  car_battery_electric:
+    essentials:
+      parent: conversion
+      carrier_in: electricity
+      carrier_out: pkm_private_BEV
+      name: 'car_battery_electric'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 9.091 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.091 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  car_fc:
+    essentials:
+      parent: conversion
+      carrier_in: hydrogen
+      carrier_out: pkm_private
+      name: 'car_fc'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 5.556 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.15 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  car_plugin_hybrid_gasoline: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: CO2
+      primary_carrier_in: gasoline
+      carrier_in: gasoline
+      carrier_in_2: electricity
+      name: 'car plugin hybrid gasoline'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 6.556
+      carrier_ratios.carrier_in_2.electricity: 0.28
+      carrier_ratios.carrier_out_2.CO2: 0.07
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  car_plugin_hybrid_syngasoline: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: renCO2
+      primary_carrier_in: syn_gasoline
+      carrier_in: syn_gasoline
+      carrier_in_2: electricity
+      name: 'car plugin hybrid syngasoline'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 5.556
+      carrier_ratios.carrier_in_2.electricity: 0.28
+      carrier_ratios.carrier_out_2.renCO2: 0.07
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  car_plugin_hybrid_diesel: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: CO2
+      primary_carrier_in: diesel
+      carrier_in: diesel
+      carrier_in_2: electricity
+      name: 'car plugin hybrid diesel'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 6.17
+      carrier_ratios.carrier_in_2.electricity: 0.28
+      carrier_ratios.carrier_out_2.CO2: 0.06
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  car_plugin_hybrid_syndiesel: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_private
+      carrier_out: pkm_private
+      carrier_out_2: renCO2
+      primary_carrier_in: syn_diesel
+      carrier_in: syn_diesel
+      carrier_in_2: electricity
+      name: 'car plugin hybrid syndiesel'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 6.17
+      carrier_ratios.carrier_in_2.electricity: 0.28
+      carrier_ratios.carrier_out_2.renCO2: 0.06
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  bus_diesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_public_bus
+      carrier_out: pkm_public_bus
+      carrier_out_2: CO2
+      carrier_in: diesel
+      name: 'bus diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 3.704 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.08
+#    costs:
+#      monetary:
+#        om_con: 0.08 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  bus_syndiesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_public_bus
+      carrier_out: pkm_public_bus
+      carrier_out_2: renCO2
+      carrier_in: syn_diesel
+      name: 'bus syn_diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 3.704 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.08
+#    costs:
+#      monetary:
+#        om_con: 0.08 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  bus_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_public_bus
+      carrier_out: pkm_public_bus
+      carrier_out_2: CO2
+      carrier_in: naturalgas
+      name: 'bus naturalgas'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 3.226 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.07
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  bus_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: pkm_public_bus
+      carrier_out: pkm_public_bus
+      carrier_out_2: renCO2
+      carrier_in: biomethane
+      name: 'bus biomethane'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 3.226 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.07
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  bus_battery_electric:
+    essentials:
+      parent: conversion
+      carrier_in: electricity
+      carrier_out: pkm_public_bus_BEV
+      name: 'bus_battery_electric'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 7.246 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.091 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  bus_fc:
+    essentials:
+      parent: conversion
+      carrier_in: hydrogen
+      carrier_out: pkm_public_bus
+      name: 'bus_fc'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 4.348 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.15 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  freight_diesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: CO2
+      carrier_in: diesel
+      name: 'freight diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1.961 #tkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.192
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  freight_syndiesel:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: renCO2
+      carrier_in: syn_diesel
+      name: 'freight syn_diesel'
+      color: '#424242'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1.961 #tkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.192
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  freight_gasoline:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: CO2
+      carrier_in: gasoline
+      name: 'freight gasoline'
+      color: '#6E6E6E'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.326 #tkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.229
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  freight_syngasoline:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: renCO2
+      carrier_in:  syn_gasoline
+      name: 'freight syn_gasoline'
+      color: '#6E6E6E'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.326 #tkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.229
+#    costs:
+#      monetary:
+#        om_con: 0.084 #CHF/kWh
+#      co2:
+#        om_con: 0.343 #kgCO2-eq./kWh
+
+  freight_naturalgas:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: CO2
+      carrier_in: naturalgas
+      name: 'freight_naturalgas'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1.961 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.CO2: 0.115
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  freight_biomethane:
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: renCO2
+      carrier_in: biomethane
+      name: 'freight_biomethane'
+      color: '#58D3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1.961 #pkm/kWhinput
+      carrier_ratios.carrier_out_2.renCO2: 0.115
+#    costs:
+#      monetary:
+#        om_con: 0.045 #CHF/kWh
+#      co2:
+#        om_con: 0.263 #kgCO2-eq./kWh
+
+  freight_battery_electric:
+    essentials:
+      parent: conversion
+      carrier_in: electricity
+      carrier_out: tkm_BEV
+      name: 'freight_battery_electric'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 4.409 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.091 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  freight_fc:
+    essentials:
+      parent: conversion
+      carrier_in: hydrogen
+      carrier_out: tkm
+      name: 'freight_fc'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.631 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.15 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+  freight_plugin_hybrid_diesel: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: CO2
+      primary_carrier_in: diesel
+      carrier_in: diesel
+      carrier_in_2: electricity
+      name: 'freight plugin hybrid diesel'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.282
+      carrier_ratios.carrier_in_2.electricity: 0.278
+      carrier_ratios.carrier_out_2.CO2: 0.123
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  freight_plugin_hybrid_syndiesel: #
+    essentials:
+      parent: conversion_plus
+      primary_carrier_out: tkm
+      carrier_out: tkm
+      carrier_out_2: renCO2
+      primary_carrier_in: syn_diesel
+      carrier_in: syn_diesel
+      carrier_in_2: electricity
+      name: 'freight plugin hybrid syndiesel'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 2.282
+      carrier_ratios.carrier_in_2.electricity: 0.278
+      carrier_ratios.carrier_out_2.renCO2: 0.123
+#    costs:
+#      monetary:
+#        om_con: 0.086 #CHF/kWh
+#      co2:
+#        om_con: 0.322 #kgCO2-eq./kWh
+
+  tram_electric:
+    essentials:
+      parent: conversion
+      carrier_in: electricity
+      carrier_out: pkm_public_tram
+      name: 'tram_electric'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 6.061 #pkm/kWhinput
+#    costs:
+#      monetary:
+#        om_con: 0.091 #CHF/kWh
+#      co2:
+#        om_con: 0.118 #kgCO2-eq./kWh
+
+###### PRIMARY SUPPLY #####
+  local_wood: #wood (domestic woody biomass)
+    essentials:
+      parent: supply_plus
+      carrier_out: wood
+      name: 'local wood'
+      color: '#239209'
+    constraints:
+#      energy_cap_max: inf # kW defined in the locations
+      resource: file=pot_wood.csv #in kWh
+      resource_unit: energy #kWh
+      force_resource: false
+      energy_eff: 1 # efficiency included in .csv
+    costs:
+      monetary:
+        om_prod: 0.035 #CHF/kWh # 0.035 local wood [AIL data]
+      co2:
+        om_prod: 0.013 #kgCO2-eq./kWh
+
+  local_waste: #non-woody biomass
+    essentials:
+      parent: supply_plus
+      carrier_out: waste
+      name: 'local waste'
+      color: '#239209'
+    constraints:
+#      energy_cap_max: inf # kW defined in the locations
+      resource: file=pot_biowaste.csv #in kWh
+      resource_unit: energy #kWh
+      force_resource: false
+      energy_eff: 1 # efficiency included in .csv
+    costs:
+      monetary:
+        om_prod: 0.009 #CHF/kWh
+      co2:
+        om_prod: 0.008 #kgCO2-eq./kWh
+
+  local_water: #water
+    essentials:
+      parent: supply
+      carrier_out: water
+      name: 'local water_th'
+      color: '#239209'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+    costs:
+      monetary:
+        om_prod: 0 #CHF/kWh
+      co2:
+        om_prod: 0.087 #kgCO2-eq./kWh
+
+  local_water_aner: #non-woody biomass
+    essentials:
+      parent: supply
+      carrier_out: water_aner
+      name: 'local water_aner_th'
+      color: '#239209'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+    costs:
+      monetary:
+        om_prod: 0 #CHF/kWh
+        om_con: 0.05 #CHF/kWh
+      co2:
+        om_prod: 0.087 #kgCO2-eq./kWh
+
+  local_ground: #groud
+    essentials:
+      parent: supply
+      carrier_out: ground
+      name: 'local ground_th'
+      color: '#239209'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+    costs:
+      monetary:
+        om_prod: 0 #CHF/kWh
+      co2:
+        om_prod: 0.087 #kgCO2-eq./kWh
+
+  local_air: #air
+    essentials:
+      parent: supply
+      carrier_out: air
+      name: 'local air_th'
+      color: '#239209'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+    costs:
+      monetary:
+        om_prod: 0 #CHF/kWh
+      co2:
+        om_prod: 0.087 #kgCO2-eq./kWh
+
+  local_sun: #sun
+    essentials:
+      parent: supply
+      carrier_out: sun
+      name: 'local sun_th'
+      color: '#239209'
+    constraints:
+      energy_cap_max: inf # kW defined in the locations
+    costs:
+      monetary:
+        om_prod: 0 #CHF/kWh
+      co2:
+        om_prod: 0.087 #kgCO2-eq./kWh
+
+  import_gasoline:
+    essentials:
+      parent: supply
+      carrier_out: gasoline
+      name: 'import gasoline'
+      color: '#EC1FD6'
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.084 #CHF/kWh
+      co2:
+        om_prod: 0.343 #kgCO2-eq./kWh
+
+  import_diesel:
+    essentials:
+      parent: supply
+      carrier_out: diesel
+      name: 'import diesel'
+      color: '#BDBDBD'
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.086 #CHF/kWh
+      co2:
+        om_prod: 0.322 #kgCO2-eq./kWh
+
+  import_liquidfueloil:
+    essentials:
+      parent: supply
+      carrier_out: liquidfueloil
+      name: 'import lfo'
+      color: '#960E87'
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.077 #CHF/kWh
+      co2:
+        om_prod: 0.317 #kgCO2-eq./kWh
+
+  import_naturalgas:
+    essentials:
+      parent: supply
+      name: 'NG import'
+      color: '#6495ED'
+      carrier_out: naturalgas
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.065 #CHF/kWh 0.045 + 0.02 grid costs
+      co2:
+        om_prod: 0.263 #kgCO2-eq./kWh
+
+  import_biomethane:
+    essentials:
+      parent: supply
+      name: 'import biomethane'
+      color: '#6495ED'
+      carrier_out: biomethane
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.065 #CHF/kWh 0.045 + 0.02 grid costs
+      co2:
+        om_prod: 0.137 #kgCO2-eq./kWh
+
+  import_biogas:
+    essentials:
+      parent: supply
+      name: 'import biogas'
+      color: '#6495ED'
+      carrier_out: biogas
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0.045 #CHF/kWh
+      co2:
+        om_prod: 0.137 #kgCO2-eq./kWh
+
+  import_electricity:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import electricity'
+      parent: supply
+      carrier: electricity
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.171 #CHF/kWh 0.091 + 0.08
+      co2:
+        om_prod: 0.118 #kgCO2-eq./kWh
+
+  import_pellets:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import pellets'
+      parent: supply
+      carrier: pellets
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.054 #CHF/kWh
+      co2:
+        om_prod: 0.013 #kgCO2-eq./kWh
+
+  import_wood:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import pellets'
+      parent: supply
+      carrier: wood
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.054 #CHF/kWh
+      co2:
+        om_prod: 0.013 #kgCO2-eq./kWh
+
+  import_syn_diesel:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import syn_diesel'
+      parent: supply
+      carrier: syn_diesel
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.086 #CHF/kWh
+      co2:
+        om_prod: 0.001 #kgCO2-eq./kWh
+
+  import_syn_gasoline:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import syn_gasoline'
+      parent: supply
+      carrier: syn_gasoline
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.084 #CHF/kWh
+      co2:
+        om_prod: 0.001 #kgCO2-eq./kWh
+
+  import_syn_liquidfueloil:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import syn_liquidfueloil'
+      parent: supply
+      carrier: syn_liquidfueloil
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.077 #CHF/kWh
+      co2:
+        om_prod: 0.001 #kgCO2-eq./kWh
+
+  import_hydrogen:
+    essentials:
+      color: '#5B2C6F'
+      name: 'import hydrogen'
+      parent: supply
+      carrier: hydrogen
+    constraints:
+      energy_cap_max: inf #
+    costs:
+      monetary:
+        om_prod: 0.169 #CHF/kWh 0.149 + 0.02 gas gris costs
+      co2:
+        om_prod: 0.203 #kgCO2-eq./kWh
+
+##### EXPORT #####
+  export_CO2:
+    essentials:
+      color: '#2E8A31'
+      name: 'CO2 export'
+      parent: demand
+      carrier: CO2
+    constraints:
+      resource: inf
+
+  export_renCO2:
+    essentials:
+      color: '#2E8A31'
+      name: 'renCO2 export'
+      parent: demand
+      carrier: renCO2
+    constraints:
+      resource: inf
+
+##### TRANSMISSION #####
+  electricity_transmission:
+    essentials:
+      parent: transmission
+      carrier: electricity
+      name: 'electricity transmission'
+      color: '#CCCCFF'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.98 #{Index mundi, 2014}, an energy efficiency for the transmission of electricity of 98% is assumed to accout for transmission losses and distribution losses. Assumption: According to the international energy agency staticists 2014, the electricity power transmission and distribution loss in Switzerland is approximately 6.7%, however, the countries with the fewest transmission and distribution losses have losses about 2%, therefore, 2% losses is assumed, as in the future, the transmission efficiency in Switzerland increases. Depending on the source, 2% is high, however, it makes also the transmission of electrcitiy less attractive, what is needed as the public acceptance of network extensions is limited.
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  naturalgas_transmission:
+    essentials:
+      parent: transmission
+      carrier: naturalgas
+      name: 'natural gas transmission'
+      color: '#B5C3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  biomethane_transmission:
+    essentials:
+      parent: transmission
+      carrier: biomethane
+      name: 'biomethane transmission'
+      color: '#B5C3F7'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  hydrogen_transmission:
+    essentials:
+      parent: transmission
+      carrier: hydrogen
+      name: 'hydrogen transmission'
+      color: '#B5C3F7'
+    constraints:
+      energy_cap_max: inf
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  CO2_transmission:
+    essentials:
+      parent: transmission
+      carrier: CO2
+      name: 'CO2 transmission'
+      color: '#B5C3F7'
+    constraints:
+      energy_cap_max: inf
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  renCO2_transmission:
+    essentials:
+      parent: transmission
+      carrier: renCO2
+      name: 'renCO2 transmission'
+      color: '#B5C3F7'
+    constraints:
+      energy_cap_max: inf
+#    costs:
+#      monetary:
+#        om_con: 0
+
+  ##### DEMAND #####
+  demand_electricity:
+    essentials:
+      name: 'Electricity demand'
+      carrier: electricity
+      parent: demand
+      color: '#7405C0'
+    constraints:
+      resource: file=demand_elec_high_rcp2.csv #in kWh
+
+  demand_ltheat:
+    essentials:
+      name: 'Low temperature heat demand'
+      carrier: ltheat
+      parent: demand
+      color: '#F5931E'
+    constraints:
+      resource: file=demand_ltheat_high_rcp2.csv #in kWh
+
+  demand_htheat:
+    essentials:
+      name: 'High temperature heat demand'
+      carrier: htheat
+      parent: demand
+      color: '#FF273B'
+    constraints:
+      resource: file=demand_htheat_high_rcp2.csv #in kWh
+
+  demand_pkm_private:
+    essentials:
+      name: 'Private passenger mobility'
+      carrier: pkm_private
+      parent: demand
+      color: '#1B2631'
+    constraints:
+      resource: file=demand_private_pkm_high_A.csv #in pkm
+
+  demand_pkm_private_BEV:
+    essentials:
+      name: 'private passenger mobility elec'
+      carrier: pkm_private_BEV
+      parent: demand
+      color: '#1B2631'
+    constraints:
+      resource: file=demand_private_pkm_BEV_high_A.csv #in pkm
+
+  demand_pkm_public_bus:
+    essentials:
+      name: 'bus'
+      carrier: pkm_public_bus
+      parent: demand
+      color: '#2E4053'
+    constraints:
+      resource: file=demand_bus_pkm_high_A.csv #in pkm
+
+  demand_pkm_public_bus_BEV:
+    essentials:
+      name: 'bus elec'
+      carrier: pkm_public_bus_BEV
+      parent: demand
+      color: '#2E4053'
+    constraints:
+      resource: file=demand_bus_pkm_BEV_high_A.csv #in pkm
+
+  demand_pkm_public_tram:
+    essentials:
+      name: 'tram'
+      carrier: pkm_public_tram
+      parent: demand
+      color: '#2E4053'
+    constraints:
+      resource: file=demand_tram_pkm_high_A.csv #in pkm
+
+  demand_tkm:
+    essentials:
+      name: 'freight mobility'
+      carrier: tkm
+      parent: demand
+      color: '#85929E'
+    constraints:
+      resource: file=demand_freight_tkm_high_A.csv #in tkm
+
+  demand_tkm_BEV:
+    essentials:
+      name: 'freight mobility electric'
+      carrier: tkm_BEV
+      parent: demand
+      color: '#85929E'
+    constraints:
+      resource: file=demand_freight_tkm_BEV_high_A.csv #in tkm
